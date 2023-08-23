@@ -9,6 +9,8 @@ import (
 	"time"
 )
 
+// CREATE REQUEST BODY
+
 type Book struct {
 	Name            string `json:"name" binding:"required"`
 	Author          `json:"author" binding:"required"`
@@ -25,6 +27,8 @@ type Author struct {
 	Birthday    time.Time `json:"birthday" binding:"required"`
 	Nationality string    `json:"nationality" binding:"required"`
 }
+
+// UPDATE REQUEST BODY
 
 type UpdateBookRequestBody struct {
 	Name             string `json:"name"`
@@ -43,7 +47,7 @@ type UpdateBookAuthor struct {
 	Nationality string    `json:"nationality" `
 }
 
-func (s *BookMangerServer) CreateBook(c *gin.Context) {
+func (s *BookMangerServer) CreateBookHandle(c *gin.Context) {
 	var reqData Book
 
 	// Authenticate of user
@@ -90,7 +94,7 @@ func (s *BookMangerServer) CreateBook(c *gin.Context) {
 	return
 }
 
-func (s *BookMangerServer) GetAllBookOfUser(c *gin.Context) {
+func (s *BookMangerServer) GetAllBookOfUserHandle(c *gin.Context) {
 
 	// Authenticate of user
 	token := c.GetHeader("access_token")
@@ -113,7 +117,7 @@ func (s *BookMangerServer) GetAllBookOfUser(c *gin.Context) {
 	return
 }
 
-func (s *BookMangerServer) GetBookById(c *gin.Context) {
+func (s *BookMangerServer) GetBookByIdHandle(c *gin.Context) {
 
 	// AUTHENTICATE OF USER
 	token := c.GetHeader("access_token")
@@ -167,7 +171,7 @@ func (s *BookMangerServer) GetBookById(c *gin.Context) {
 
 }
 
-func (s *BookMangerServer) UpdateBook(c *gin.Context) {
+func (s *BookMangerServer) UpdateBookHandle(c *gin.Context) {
 	var reqData UpdateBookRequestBody
 
 	// AUTHENTICATE OF USER
@@ -228,7 +232,7 @@ func (s *BookMangerServer) UpdateBook(c *gin.Context) {
 
 }
 
-func (s *BookMangerServer) DeleteBook(c *gin.Context) {
+func (s *BookMangerServer) DeleteBookHandle(c *gin.Context) {
 	// AUTHENTICATE OF USER
 	token := c.GetHeader("access_token")
 	username, err := s.Authenticate.AuthenticateUserWithToken(token)

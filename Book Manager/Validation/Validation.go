@@ -6,6 +6,7 @@ import (
 	"fmt"
 )
 
+// DOMAIN VALID LIST
 var validDomain = []string{".com", ".ir", ".org"}
 
 type Validation struct {
@@ -24,6 +25,8 @@ func CreateValidation(db *Database.GormDB) (*Validation, error) {
 		ValidDomain: validDomain,
 	}, nil
 }
+
+// METHODS
 func (v *Validation) ValidateData(email string, phone string) error {
 	if err := v.validateEmail(email); err != nil {
 		return err
