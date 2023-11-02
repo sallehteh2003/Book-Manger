@@ -44,14 +44,7 @@ Try all the apis in localhost:3001
 
 // You can see the provided token in your response header
 ```
-## Sign In By Token
-```go
-    path: /api/v1/auth/autoLogin
-    method: POST
 
-// Request Header
-Authorization: <token string>
-```
 ## Create book
 ```go
     path: /api/v1/books
