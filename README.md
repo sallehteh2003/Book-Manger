@@ -87,7 +87,7 @@ access_token: <token string>
     method: GET
 
 // Request Header
-Authorization: <token string>
+access_token: <token string>
 ```
 ## Get Book By id
 ```go
@@ -95,7 +95,7 @@ Authorization: <token string>
     method: GET
 
 // Request Header
-Authorization: <token string>
+access_token: <token string>
 ```
 ## Update book info
 ```go
@@ -103,7 +103,7 @@ Authorization: <token string>
     method: PATCH
 
 // Request Header
-Authorization: <token string>
+access_token: <token string>
 
 // Request Body
 // You can ommit whatever the field that you don't want to change
@@ -132,5 +132,5 @@ Authorization: <token string>
     method: DELETE
 
 // Request Header
-Authorization: <token string>
+access_token: <token string>
 ```
